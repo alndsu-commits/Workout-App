@@ -939,7 +939,7 @@ function ActiveWorkout({ routine, lastPRs={}, onFinish }) {
       <Confetti active={confetti}/>
       <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"3.4rem",fontWeight:800,color:"#E8FF47",textAlign:"center"}}>WORKOUT<br/>COMPLETE</div>
       <div style={{fontFamily:"monospace",fontSize:"1.15rem",color:"#AEAEB2"}}>{totalSets} SETS · {Math.round((Date.now()-state.startTime)/60000)} MIN</div>
-      <button onClick={onFinish} className="px-8 py-3 font-bold" style={{background:"#E8FF47",color:"#0D0D0D",fontFamily:"'Barlow Condensed',sans-serif",fontSize:"1.3rem",letterSpacing:"0.1em",border:"none",borderRadius:"4px"}}>BACK TO HOME</button>
+      <button onClick={()=>onFinish(null)} className="px-8 py-3 font-bold" style={{background:"#E8FF47",color:"#0D0D0D",fontFamily:"'Barlow Condensed',sans-serif",fontSize:"1.3rem",letterSpacing:"0.1em",border:"none",borderRadius:"4px"}}>BACK TO HOME</button>
     </div>
   );
 
@@ -952,7 +952,7 @@ function ActiveWorkout({ routine, lastPRs={}, onFinish }) {
           onClose={()=>setSwapIdx(null)}/>
       )}
       <div className="flex items-center justify-between px-4 py-3" style={{borderBottom:"2px solid #3A3A3E"}}>
-        <button onClick={onFinish} style={{color:"#AEAEB2",background:"transparent",border:"none"}}><X size={20}/></button>
+        <button onClick={()=>onFinish(null)} style={{color:"#AEAEB2",background:"transparent",border:"none",padding:"8px"}}><X size={20}/></button>
         <div style={{fontFamily:"monospace",fontSize:"0.85rem",color:"#AEAEB2",letterSpacing:"0.1em"}}>{totalDone}/{totalSets} SETS</div>
         <div className="flex gap-3 items-center">
           <button onClick={()=>setMuted(!muted)} style={{color:"#AEAEB2",background:"transparent",border:"none"}}>{muted?<VolumeX size={16}/>:<Volume2 size={16}/>}</button>
